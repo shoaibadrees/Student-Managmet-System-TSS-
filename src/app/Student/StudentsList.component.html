@@ -1,0 +1,195 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Students List</h4>
+            <p class="card-category">Here You can See Student List </p>
+          </div>
+          <div class="card-body" fxLayout="column">
+            <mat-form-field fxFlex="100">
+              <mat-label>Filter</mat-label>
+              <input
+                matInput
+                (keyup)="applyFilter($event)"
+                placeholder="Filter"
+                #input
+              />
+            </mat-form-field>
+
+            <div class="table-responsive">
+              <table mat-table [dataSource]="dataSource" class="app-table">
+                <!-- Position Column -->
+
+                <ng-container matColumnDef="StudentID">
+                  <th mat-header-cell *matHeaderCellDef>StudentID</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.StudentID }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="Code">
+                  <th mat-header-cell *matHeaderCellDef>Code</th>
+                  <td mat-cell *matCellDef="let element">{{ element.Code }}</td>
+                </ng-container>
+                <ng-container matColumnDef="FirstName">
+                  <th mat-header-cell *matHeaderCellDef>FirstName</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.FirstName }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="LastName">
+                  <th mat-header-cell *matHeaderCellDef>Last Name</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.LastName }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="FatherName">
+                  <th mat-header-cell *matHeaderCellDef>Father Name</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.FatherName }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="ClassID">
+                  <th mat-header-cell *matHeaderCellDef>Class ID</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.ClassID }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Action">
+                  <th mat-header-cell *matHeaderCellDef>
+                    <!-- <button mat-raised-button type="button"   class="btn btn-default" id="insertbtn"> Insert
+                                    </button> -->
+                    <button
+                      mat-button
+                      (click)="insertRecord()"
+                      class="add-btn"
+                      color="basic"
+                      matTooltip="Add New Record"
+                      matTooltipPosition="above"
+                    >
+                      <mat-icon>note_add</mat-icon> Add
+                    </button>
+                  </th>
+                  <td mat-cell *matCellDef="let obj">
+                    <div
+                      fxLayout="row"
+                      fxLayoutGap="10px"
+                      fxLayoutAlign="end center"
+                    >
+                      <!--<button mat-raised-button type="button"  (click)='updateDialog(obj)' class="btn btn-primary">
+                                            <i class="material-icons">edit</i></button>-->
+                      <button
+                        mat-button
+                        matTooltip="Edit Student  Info"
+                        matTooltipPosition="left"
+                        (click)="editRecord(obj)"
+                        class="btn-edit"
+                        color="primary"
+                      
+                      >
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                      <button (click)="spParentsInfos(obj)"
+                        mat-button
+                        class="btn-edit"
+                        color="primary"
+                        matTooltip=" Parent Info"
+                        matTooltipPosition="below"
+                      >
+                        <mat-icon>
+                          family_restroom
+                         </mat-icon>
+                      </button>
+                      <button (click)="KinShipInfo(obj)"
+                      mat-button
+                      class="btn-edit"
+                      color="primary"
+                      matTooltip="Kinship Info" 
+                      matTooltipPosition="above"
+                    >
+                      <mat-icon >people_alt</mat-icon>
+                    </button>
+                    <button (click)="HealthInfo(obj)"
+                    mat-button
+                    class="btn-edit"
+                    color="primary"
+
+                    matTooltip=" Health Info" 
+                    matTooltipPosition="below"
+                    matTooltipClass="example-tooltip-red">
+                  
+                    <mat-icon>
+                      health_and_safety
+                     </mat-icon>
+                  </button>
+                  <button (click)="AcademicHistory(obj)"
+                  mat-button
+                  class="btn-edit"
+                  color="warm"
+                  matTooltip="Academic History"
+                  matTooltipPosition="above"
+                >
+                  <mat-icon>
+                    school
+                 </mat-icon>
+                </button>
+                <button (click)="FeeHistory()"
+                mat-button
+                class="btn-edit"
+                color="primary"
+                matTooltip="Fee History"
+                matTooltipPosition="below"
+              >
+                <mat-icon>
+                  payments
+                </mat-icon>
+              </button>
+              <button (click)="AdmissionHistory()"
+              mat-button
+              class="btn-edit"
+              color="primary"
+              matTooltip="Admission History"
+              matTooltipPosition="above"
+            >
+              <mat-icon>
+                follow_the_signs
+                </mat-icon>
+            </button>
+                      <button
+                        mat-button
+                        (click)="deleteRecord(obj)"
+                        class="btn-delete"
+                        color="warn"
+                        matTooltip="Delete Student Info"
+                        matTooltipPosition="right"
+                      >
+                        <mat-icon>delete_forever</mat-icon>
+                      </button>
+                    </div>
+                  </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                  [ngClass]="{ 'selected-row': row.EmpID === selectedRowId }"
+                ></tr>
+              </table>
+
+              <div *ngIf="dataSource.data.length == 0" class="no-records">
+                <span *ngIf="isGridDataLoading"> Loading...</span>
+                <span *ngIf="!isGridDataLoading"> No records found </span>
+              </div>
+
+              <mat-paginator
+                [pageSizeOptions]="[7, 10, 25, 100]"
+              ></mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

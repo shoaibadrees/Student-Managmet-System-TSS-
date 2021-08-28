@@ -1,0 +1,84 @@
+
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+                            <h4 class="card-title " >Student Kinship Information</h4>
+                            <p class="card-category"> Here You Can Define Student Kinshipkk Information</p>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]='form1' novalidate>
+
+                                <mat-card style='margin-top:10px;'>
+                                <div>
+                                 <mat-form-field class="example-full-width">    
+                                    <mat-label>KinshipInfo ID</mat-label>
+                                    <input formControlName='KinshipInfoID' matInput placeholder="KinshipInfoID">
+
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">    
+                                    <mat-label>Name</mat-label>
+                                    <input formControlName='Name' matInput placeholder="Name">
+                                    <mat-error *ngFor="let validation of validation_messages.Name">
+                                        <mat-error class="error-message" *ngIf="form1.get('Name').hasError(validation.type)
+                                         && (form1.get('Name').dirty || form1.get('Name').touched)">{{validation.message}}</mat-error>
+                                      </mat-error> 
+                                </mat-form-field>
+                    
+                                    <mat-form-field class="example-full-width">
+                            
+                                        <mat-select formControlName="Class" placeholder="Class">
+                                          <mat-option *ngFor="let classes of LoadClasses" [value]="classes.ClassID">{{ classes.Name }}
+                                          </mat-option>
+                                        </mat-select>
+                                    <mat-error *ngFor="let validation of validation_messages.Class">
+                                                  <mat-error class="error-message" *ngIf="form1.get('Class').hasError(validation.type)
+                                                   && (form1.get('Class').dirty || form1.get('Class').touched)">{{validation.message}}</mat-error>
+                                                </mat-error>
+                                  </mat-form-field>
+                               
+                                
+                                  <mat-form-field class="example-full-width">  
+                            
+                                    <input matInput formControlName='Relation' matInput placeholder="Relation">
+                                    <mat-error *ngFor="let validation of validation_messages.Relation">
+                                                  <mat-error class="error-message" *ngIf="form1.get('Relation').hasError(validation.type)
+                                                   && (form1.get('Relation').dirty || form1.get('Relation').touched)">{{validation.message}}</mat-error>
+                                                </mat-error>
+                                  </mat-form-field>
+                            <div fxLayout="row" fxLayoutGap="9px" fxLayoutAlign="end center">
+                            
+                                    <button mat-raised-button color="warn" (click)='closeDialog()'>Cancel</button>
+                                    <button  mat-raised-button color="primary" (click)='saveRecord()'[disabled]='form1.invalid'>Save</button>
+                            
+                                  
+                                  </div>
+                                
+                              
+                                
+                                
+                                </div>
+                                </mat-card>
+                                </form>
+                            
+                           
+
+
+                             
+
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+       
+
+
+
+    

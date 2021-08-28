@@ -1,0 +1,156 @@
+
+
+ 
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+
+ 
+
+
+                            <h4 class="card-title " >{{title}}</h4>
+                            <p class="card-category"> Here you Can Define Leaves</p>
+                        </div>
+                        <div class="card-body">
+                            
+
+                            
+
+                          <form [formGroup]='form1' novalidate>
+                          
+                                
+                                    <mat-card style='margin-top:10px;'>
+                                        <div >
+                                         <mat-form-field class="example-full-width">    
+                                            <mat-label>ID</mat-label>
+                                            <input formControlName='ID' matInput placeholder="ID(disabled)">
+                                            <mat-error *ngFor="let validation of validation_messages.ID">
+                                                          <mat-error class="error-message" *ngIf="form1.get('ID').hasError(validation.type)
+                                                           && (form1.get('ID').dirty || form1.get('ID').touched)">{{validation.message}}</mat-error>
+                                                        </mat-error>
+                                          </mat-form-field>
+                                        
+                                        
+                                        
+                                        
+                                          <mat-form-field  >    
+                                            <input formControlName='Date' type="date" matInput placeholder="Date">
+                                            <mat-error *ngFor="let validation of validation_messages.Date">
+                                                          <mat-error class="error-message" *ngIf="form1.get('Date').hasError(validation.type)
+                                                           && (form1.get('Date').dirty && form1.get('Date').touched)">{{validation.message}}</mat-error>
+                                                        </mat-error>
+                                                    </mat-form-field>
+                                          <div fxLayout.lg="row"  fxLayout.lt-md="column" fxLayoutGap="30px" >
+                                            <mat-form-field >    
+                                                <input formControlName='From' type="date" matInput placeholder="From Date">
+                                                <mat-error *ngFor="let validation of validation_messages.From">
+                                                              <mat-error class="error-message" *ngIf="form1.get('From').hasError(validation.type)
+                                                               && (form1.get('From').dirty && form1.get('From').touched)">{{validation.message}}</mat-error>
+                                                            </mat-error>
+                                              </mat-form-field>
+                                              <mat-form-field  >    
+                                                <input formControlName='To' type="date" matInput placeholder="To Date">
+                                                <mat-error *ngFor="let validation of validation_messages.To">
+                                                              <mat-error class="error-message" *ngIf="form1.get('To').hasError(validation.type)
+                                                               && (form1.get('To').dirty && form1.get('To').touched)">{{validation.message}}</mat-error>
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                              
+                                        </div>
+                                        <div fxLayout.lg="row"  fxLayout.md="column" fxLayoutGap="30px" >
+                                       
+                                        <mat-form-field >    
+                                          <input formControlName='Days' type="number" matInput placeholder="No of Leaves">
+                                          <mat-error *ngFor="let validation of validation_messages.Days">
+                                                        <mat-error class="error-message" *ngIf="form1.get('Days').hasError(validation.type)
+                                                         && (form1.get('Days').dirty && form1.get('Days').touched)">{{validation.message}}</mat-error>
+                                                      </mat-error>
+                                        </mat-form-field>
+                                        <mat-form-field >    
+                                            <mat-label>Select Leave Type</mat-label>
+                                          <mat-select formControlName='Type'  >
+                                            <mat-option *ngFor= 'let leaveTypes of leaveType' [value]="leaveTypes.value">{{leaveTypes.view}}</mat-option>
+                                            
+                                          </mat-select>
+                                          <mat-error *ngFor="let validation of validation_messages.Type">
+                                                        <mat-error class="error-message" *ngIf="form1.get('Type').hasError(validation.type)
+                                                         && (form1.get('Type').dirty && form1.get('Type').touched)">{{validation.message}}</mat-error>
+                                                      </mat-error>
+
+
+                                        </mat-form-field>
+                                      
+
+                                        </div>
+                                        <div>
+                                            <mat-form-field >    
+                                                <input formControlName='Remarks' type="text" matInput placeholder="Remarks(Optional)">
+                                               
+                                              </mat-form-field>
+                                        </div>
+                                      
+                                       
+                                                                   
+                                        </div>
+                                        
+                                            
+                                           
+  
+                                                        
+                                          
+                                        <div fxLayout="row" fxLayoutGap="9px" fxLayoutAlign="end center">
+                            
+                                            <button mat-raised-button color="warn" (click)='dialogRef.close()'>Cancel</button>
+                                            <button  mat-raised-button color="primary" (click)='saveRecord()'[disabled]='form1.invalid'>Save</button>
+                                        </div>
+                                        </mat-card>
+                                        
+                                   
+
+                                
+                              
+                                   
+                            </form>
+                            
+
+                                
+                            
+                           
+
+
+                             
+
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+       
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    

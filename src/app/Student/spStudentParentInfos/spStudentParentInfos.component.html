@@ -1,0 +1,82 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger" cdkDrag cdkDragRootElement=".cdk-overlay-pane"
+                        cdkDragHandle>
+                        <h4 class="card-title ">Student Parents Information</h4>
+                        <p class="card-category"> Here You Can Define Student Parent Information</p>
+                    </div>
+                    <div class="card-body" fxLayout='column'>
+                        <div class="table-responsive">
+
+                            <table mat-table [dataSource]="dataSource" class="app-table">
+
+
+                                <!-- Position Column -->
+
+                                <ng-container matColumnDef="ParentInfoTitle">
+                                    <th mat-header-cell *matHeaderCellDef> Name</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.ParentInfoTitle}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="Mother">
+                                    <th mat-header-cell *matHeaderCellDef> Mother </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <input  type='text' [(ngModel)]='element.Mother'>
+
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="FatherGuardian">
+                                    <th mat-header-cell *matHeaderCellDef> Father/Gaurdian </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <input  type='text' [(ngModel)]='element.FatherGuardian'>
+                                    </td>
+                                </ng-container>
+
+
+
+
+
+
+                                <ng-container matColumnDef="Action">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <!-- <button mat-raised-button type="button"   class="btn btn-default" id="insertbtn"> Insert
+                                    </button> -->
+                                    </th>
+                                    <td mat-cell *matCellDef="let obj">
+
+                                    </td>
+                                </ng-container>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns"
+                                    [ngClass]="{ 'selected-row': row.Code === selectedRowId }"></tr>
+
+                            </table>
+
+                            <div *ngIf="dataSource.data.length==0" class="no-records">
+                                <span *ngIf='isGridDataLoading'> Loading...</span>
+                                <span *ngIf='!isGridDataLoading'> No records found </span>
+                            </div>
+
+
+                            <!--<mat-paginator  [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>-->
+                        </div>
+                        <div fxLayout="row" fxLayoutGap="9px" fxLayoutAlign="end center" style="padding-top:15px;">
+
+                            <button mat-raised-button color="warn" (click)='dialogRef.close()'>Cancel</button>
+                            <button (click)='saveRecords()' mat-raised-button color="primary">Save</button>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

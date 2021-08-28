@@ -1,0 +1,82 @@
+
+<div class="main-content">
+     <div class="container-fluid">
+         <div class="row">
+             <div class="col-md-12">
+                 <div class="card">
+                     <div class="card-header card-header-danger" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+
+
+
+
+                         <h4 class="card-title " >Admission History</h4>
+                         <p class="card-category"> Here You Can define Class Admission</p>
+                     </div>
+                     <div class="card-body">
+                         <form [formGroup]='form1' novalidate>
+
+                             <mat-card style='margin-top:10px;'>
+                             <div >
+                         
+                               
+                             
+                             
+                          
+                             
+                              <mat-form-field class="example-full-width">    
+                                 <mat-label>Class of Admission</mat-label>
+                                 <mat-select formControlName="classofAdmission">
+                                   <mat-option [value]="classes.ClassID" *ngFor="let classes of LoadClasses">{{classes.Name}}</mat-option>
+                                  
+                                 </mat-select>
+                                
+                               </mat-form-field>
+                               <mat-form-field class="example-full-width">  
+                         
+                                <input matInput formControlName='languageSpoken' matInput placeholder="Language Spaken At Home">
+                                
+                               </mat-form-field>
+                               
+                             <div fxLayout="row" fxLayoutGap="9px" fxLayoutAlign="end center">
+                         
+                                 <button mat-raised-button color="warn" (click)="dialogRef.close()" >Cancel</button>
+                                 <button  mat-raised-button color="primary" >Save</button>
+                         
+                               
+                               </div>
+                             
+                           
+                             
+                             
+                             </div>
+                             </mat-card>
+                             </form>
+              
+                     </div>
+                 </div>
+             </div>
+             
+         </div>
+     </div>
+ </div>
+
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

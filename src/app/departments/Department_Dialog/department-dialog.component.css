@@ -1,0 +1,19 @@
+
+
+
+.mat-dialog-container{
+
+    background:transparent;
+    padding:0px;
+    box-shadow: none;
+}
+
+.mat-raised-button {
+  
+  
+    width:85px;
+  }
+  .card-header {
+      cursor: move;
+  }
+  

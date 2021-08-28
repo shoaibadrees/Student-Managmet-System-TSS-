@@ -1,0 +1,34 @@
+.uploadImage {
+     height: 220px;
+     width: 150px;
+    position:relative;
+    margin-left: 62px;
+   }
+   #x {
+        padding-left: 10px;;
+     position: absolute;
+     background: #ab9999;
+     color: white;
+     top: -8px;
+     left: 152px;
+     border-radius: 8px;
+   }
+
+       
+   .img-area {
+       
+     width: 115%;
+     height: 80%;
+     border: 5px solid gray;
+     box-sizing: border-box;
+   }
+   #btnUpload{
+   
+   margin-top: 4px;
+   padding: 8px;
+   height: 39px;
+   margin-left: 15px;
+   position: absolute;
+   }
+
+

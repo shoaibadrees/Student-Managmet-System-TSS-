@@ -1,0 +1,28 @@
+
+
+
+.mat-dialog-container{
+
+    background:transparent;
+    padding:0px;
+    box-shadow: none;
+}
+
+.mat-raised-button {
+  
+  
+    width:85px;
+  }
+  .card-header {
+      cursor: move;
+  }
+  .custom1-dialog-container .mat-dialog-container {
+    overflow: hidden !important;
+}
+.btnUploadImage {
+    position: relative;
+    width: 131px;
+    background-color: rgb(236, 143, 232);
+    margin-top: 10px;
+    border-radius: 5px;
+  }

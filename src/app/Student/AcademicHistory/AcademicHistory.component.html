@@ -1,0 +1,98 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Student Academic History</h4>
+                        <p class="card-category"> Here You Can Define Student Academic Details</p>
+                    </div>
+                    <div class="card-body"  fxLayout='column' >
+
+                        <mat-form-field fxFlex='100'>
+                            <mat-label>Filter</mat-label>
+                            <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
+                        </mat-form-field>
+
+                        <div class="table-responsive" >
+                          
+                            <table  mat-table [dataSource]="dataSource"  class="app-table"    >
+                                
+                                
+                                 <!-- Position Column -->
+                                <ng-container matColumnDef="PreviousSchoolID">
+                                    <th mat-header-cell *matHeaderCellDef> PreviousSchoolID </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.PreviousSchoolID}} </td>
+                                </ng-container>
+                            <ng-container matColumnDef="Institute">
+                                <th mat-header-cell *matHeaderCellDef> Institute. </th>
+                                <td mat-cell *matCellDef="let element"> {{element.Institute}} </td>
+                            </ng-container>
+                         
+                            <ng-container matColumnDef="DateFrom">
+                                <th mat-header-cell *matHeaderCellDef> DateFrom </th>
+                                <td mat-cell *matCellDef="let element"> {{element.DateFrom | date: 'dd/MM/yyyy'}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="DateTo">
+                                <th mat-header-cell *matHeaderCellDef> DateTo </th>
+                                <td mat-cell *matCellDef="let element">{{element.DateTo  | date: 'dd/MM/yyyy'}}</td>
+                            </ng-container>
+
+                           
+
+                            <ng-container matColumnDef="Action" >
+                                <th mat-header-cell *matHeaderCellDef> 
+                                   <!-- <button mat-raised-button type="button"   class="btn btn-default" id="insertbtn"> Insert
+                                    </button> -->
+                                    <button mat-button (click)='insertRecord(this.studentID,this.isAddMode)' class='add-btn' color="basic" >
+                                       <mat-icon>note_add</mat-icon> Add
+                                      </button>
+                                    
+                                </th>
+                                <td mat-cell *matCellDef="let obj"  > 
+                                   <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="end center">
+                                      
+                                            <button mat-button (click)='editRecord(obj)' class='btn-edit' color="primary" >
+                                                <mat-icon>edit</mat-icon> 
+                                            </button>
+                                       
+                                           
+
+                                        <button mat-button (click)='deleteRecord(obj)' class='btn-delete' color="warn" >
+                                            <mat-icon>delete_forever</mat-icon> 
+                                        </button>
+                                        </div>
+                                   
+                                        
+
+                            </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"
+                            ></tr>
+                           <tr mat-row *matRowDef="let row; columns: displayedColumns"
+                            [ngClass]="{ 'selected-row': row.Code === selectedRowId }" ></tr>
+                            
+
+                          
+
+                            </table>
+                            
+                            <div *ngIf="dataSource.data.length==0" class="no-records">
+                               <span *ngIf='isGridDataLoading'> Loading...</span>
+                               <span *ngIf='!isGridDataLoading'> No records found </span>
+                           </div> 
+         
+ 
+                            <mat-paginator  [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                        </div>
+                    
+                    
+                    </div>
+             
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+
+@import "src/assets/scss/variables";
+
+//.desg{
+
+
+    table {
+      width: 100%;
+    }
+
+
+
+    .mat-table {
+      overflow: auto;
+      /*max-height: 500px;*/
+    }
+
+
+    .mat-column-Code {
+      min-width: 90px;
+      width: 90px;
+      
+      text-align: left;
+    }
+
+    .mat-column-Name {
+      min-width: 70px;
+      width:  190px;
+
+    }
+
+    .mat-column-Action {
+
+      min-width: 70px;
+      width: 110px;
+      text-align: right;
+      
+    
+
+      .material-icons
+        {
+          font-size:25px!important;
+        }
+        th{
+          width:322px;
+        
+        }
+    }
+
+    .mat-header-Action {
+      height: 367px;
+      background: red;
+        
+      }
+
+    .mat-table-sticky:last-child {
+      border-left: 1px solid #e0e0e0;
+    }
+
+    .mat-row,   .mat-cell {
+      height: 37px;
+      border-bottom-color: darkgray;
+    }
+
+    
+
+   
+   
+
+// }
+

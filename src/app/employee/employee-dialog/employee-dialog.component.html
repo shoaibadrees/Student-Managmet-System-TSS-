@@ -1,0 +1,229 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger" cdkDrag cdkDragRootElement=".cdk-overlay-pane"
+                        cdkDragHandle>
+
+                        <h4 class="card-title ">{{title}}</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+
+                    </div>
+
+                    <div class="card-body">
+                        <form [formGroup]='form1' novalidate #imageForm=ngForm>
+                            <mat-card style='margin-top:10px;'>
+                                <div>
+                                    <div class="row">
+                                    <div class="col-md-6"></div>
+
+                                    <div class="col-md-6">
+                                        <div class="uploadImage">
+                                            
+
+                                                <img [src]="imageUrl" style="width:180px;height:180px">
+                                                
+                                                <input style="display: none;" type="file" #Image accept="image/*"
+                                                    (change)="handleFileInput($event.target.files)">
+                                                
+                                                    <button type="file" id="btnUploadImage" class="btnUploadImage"
+                                                 (click)="Image.click()">
+                                                <!-- <mat-icon>cloud_upload</mat-icon> -->
+                                                Upload Image
+                                            </button>
+                                            
+                                        </div>
+                                    </div>
+                                    </div>
+                                        
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Code</mat-label>
+                                                <input name=code formControlName='code' matInput placeholder="code">
+                                                <mat-error *ngFor="let validation of validation_messages.code">
+                                                    <mat-error class="error-message" *ngIf="form1.get('code').hasError(validation.type)
+                                                       && (form1.get('code').dirty || form1.get('code').touched)">
+                                                        {{validation.message}}</mat-error>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        
+                                    
+                                    
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+
+                                                <input matInput formControlName='name' matInput placeholder="Name">
+                                                <mat-error *ngFor="let validation of validation_messages.name">
+                                                    <mat-error class="error-message" *ngIf="form1.get('name').hasError(validation.type)
+                                                       && (form1.get('name').dirty || form1.get('name').touched)">
+                                                        {{validation.message}}</mat-error>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+
+
+
+
+                                        <!-- <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+
+                                                <input matInput formControlName='fathername' matInput
+                                                    placeholder="Father Name">
+                                                <mat-error *ngFor="let validation of validation_messages.fathername">
+                                                    <mat-error class="error-message"
+                                                        *ngIf="form1.get('fathername').hasError(validation.type)
+                                                       && (form1.get('fathername').dirty || form1.get('fathername').touched)">{{validation.message}}
+                                                    </mat-error>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div> -->
+
+
+
+
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+
+                                                <input matInput type='date' matInput formControlName='dob' matInput
+                                                    placeholder="DOB">
+                                                <mat-error *ngFor="let validation of validation_messages.dob">
+                                                    <mat-error class="error-message" *ngIf="form1.get('dob').hasError(validation.type)
+                                                       && (form1.get('dob').dirty || form1.get('dob').touched)">
+                                                        {{validation.message}}</mat-error>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="col-md-6">
+
+                                        <mat-form-field class="example-full-width">
+
+                                            <input matInput formControlName='nicno' type='number' matInput
+                                                placeholder="NIC No.">
+                                            <mat-error *ngFor="let validation of validation_messages.nicno">
+                                                <mat-error class="error-message" *ngIf="form1.get('nicno').hasError(validation.type)
+                                                       && (form1.get('nicno').dirty || form1.get('nicno').touched)">
+                                                    {{validation.message}}</mat-error>
+                                            </mat-error>
+                                        </mat-form-field>
+
+                                    </div> -->
+
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+
+                                                <input matInput formControlName='religion' matInput
+                                                    placeholder="Religion">
+                                                <!-- <mat-label>Religion</mat-label>
+                                                <mat-select formControlName='Type'>
+                                                    <mat-option *ngFor='let religionTypes of religionType'
+                                                        [value]="religionTypes.value">{{religionTypes.view}}
+                                                    </mat-option>
+                                                </mat-select> -->
+                                                <mat-error *ngFor="let validation of validation_messages.religion">
+                                                    <mat-error class="error-message"
+                                                        *ngIf="form1.get('religion').hasError(validation.type)
+                                                       && (form1.get('religion').dirty || form1.get('religion').touched)">{{validation.message}}
+                                                    </mat-error>
+                                                </mat-error>
+                                            </mat-form-field>
+
+
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <mat-form-field class="example-full-width">
+
+                                                <input matInput formControlName='qualification' matInput
+                                                    placeholder="Qualification">
+                                                <mat-error *ngFor="let validation of validation_messages.qualification">
+                                                    <mat-error class="error-message"
+                                                        *ngIf="form1.get('qualification').hasError(validation.type)
+                                                       && (form1.get('qualification').dirty || form1.get('qualification').touched)">
+                                                        {{validation.message}}</mat-error>
+                                                </mat-error>
+                                            </mat-form-field>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <mat-form-field class="example-full-width">
+
+
+                                                <mat-label>Gender</mat-label>
+                                                <input matInput formControlName='sex' matInput placeholder="Sex">
+                                                <!-- <mat-select formControlName='Type'>
+                                                    <mat-option *ngFor='let sexTypes of sexType'
+                                                        [value]="sexTypes.value">{{sexTypes.view}}</mat-option> -->
+
+                                                <!-- </mat-select> -->
+
+                                                <mat-error *ngFor="let validation of validation_messages.sex">
+                                                    <mat-error class="error-message" *ngIf="form1.get('sex').hasError(validation.type)
+                                                       && (form1.get('sex').dirty || form1.get('sex').touched)">
+                                                        {{validation.message}}</mat-error>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+
+
+
+
+                                        <!-- <mat-form-field class="example-full-width">
+
+                                                <input matInput formControlName='city' matInput placeholder="City">
+                                                <mat-error *ngFor="let validation of validation_messages.city">
+                                                    <mat-error class="error-message" *ngIf="form1.get('city').hasError(validation.type)
+                                                       && (form1.get('city').dirty || form1.get('city').touched)">
+                                                        {{validation.message}}</mat-error>
+                                                </mat-error>
+                                            </mat-form-field> -->
+
+
+                                    </div>
+
+                                    <mat-checkbox class="example-margin" formControlName='status' color='primary'>Status
+                                    </mat-checkbox>
+
+
+
+                                    <!-- Code for image upload -->
+
+
+
+
+
+
+                                    <div fxLayout="row" fxLayoutGap="9px" fxLayoutAlign="end center">
+
+                                        <button mat-raised-button color="warn"
+                                            (click)='dialogRef.close()'>Cancel</button>
+                                        <button type="submit"  mat-raised-button color="primary" (click)='saveRecord()'
+                                            [disabled]='form1.invalid'>Save</button>
+
+
+
+                                    </div>
+
+                                </div>
+
+                            </mat-card>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

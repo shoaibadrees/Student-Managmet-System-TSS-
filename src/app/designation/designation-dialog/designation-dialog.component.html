@@ -1,0 +1,175 @@
+
+
+ 
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+
+ 
+
+
+                            <h4 class="card-title " >{{title}}</h4>
+                            <p class="card-category"> Here is a subtitle for this table</p>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]='form1' novalidate>
+
+                                <mat-card style='margin-top:10px;'>
+                                <div >
+                            
+                                  
+                                
+                                
+                             
+                                
+                                 <mat-form-field class="example-full-width">    
+                                    <mat-label>Code</mat-label>
+                                    <input formControlName='code' matInput placeholder="code">
+                                    <mat-error *ngFor="let validation of validation_messages.code">
+                                                  <mat-error class="error-message" *ngIf="form1.get('code').hasError(validation.type)
+                                                   && (form1.get('code').dirty || form1.get('code').touched)">{{validation.message}}</mat-error>
+                                                </mat-error>
+                                  </mat-form-field>
+                                
+                                
+                                
+                                
+                                 <mat-form-field class="example-full-width">  
+                            
+                                    <input matInput formControlName='name' matInput placeholder="Name">
+                                    <mat-error *ngFor="let validation of validation_messages.name">
+                                                  <mat-error class="error-message" *ngIf="form1.get('name').hasError(validation.type)
+                                                   && (form1.get('name').dirty || form1.get('name').touched)">{{validation.message}}</mat-error>
+                                                </mat-error>
+                                  </mat-form-field>
+                               
+                                
+                              
+                               
+                                
+                                 <mat-form-field class="example-full-width">    
+                                    <input formControlName='description' matInput placeholder="description">
+                                    <mat-error *ngFor="let validation of validation_messages.description">
+                                                  <mat-error class="error-message" *ngIf="form1.get('description').hasError(validation.type)
+                                                   && (form1.get('description').dirty || form1.get('description').touched)">{{validation.message}}</mat-error>
+                                                </mat-error>
+                                  </mat-form-field>
+                                
+                                <div fxLayout="row" fxLayoutGap="9px" fxLayoutAlign="end center">
+                            
+                                    <button mat-raised-button color="warn" (click)='dialogRef.close()'>Cancel</button>
+                                    <button  mat-raised-button color="primary" (click)='saveRecord()'[disabled]='form1.invalid'>Save</button>
+                            
+                                  
+                                  </div>
+                                
+                              
+                                
+                                
+                                </div>
+                                </mat-card>
+                                </form>
+                            
+                           
+
+
+                             
+
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+       
+
+
+
+
+    <!---
+
+
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                            <h4 class="card-title ">{{title}}</h4>
+                            <p class="card-category"> Here is a subtitle for this table</p>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]='form1' novalidate>
+                                <div class="form-group">
+                                    <label ><strong>Code</strong></label>
+                                    <input type="text "class='form-control ' formControlName='code' placeholder="code"  [ngClass]="{'is-invalid': (form1.get('code').invalid && form1.get('code').touched)}" readonly>
+                                    <div  *ngFor="let validation of validation_messages.code">
+                                        <div class="text-danger" *ngIf="form1.get('code').hasError(validation.type)
+                                        && (form1.get('code').dirty || form1.get('code').touched)">{{validation.message}}</div> 
+                                    </div>
+                                
+                                </div>
+
+                                <div class="form-group">
+                                    <label ><strong>Name</strong></label>
+                                    <input type="text "class='form-control ' formControlName='name' placeholder="name"  [ngClass]="{'is-invalid': (form1.get('name').invalid&&form1.get('name').touched)}">
+                                    <div  *ngFor="let validation of validation_messages.name">
+                                        <div class="text-danger" *ngIf="form1.get('name').hasError(validation.type)
+                                        && (form1.get('name').dirty || form1.get('name').touched)">{{validation.message}}</div> 
+                                    </div>
+                                
+                                </div>
+
+                                <div class="form-group">
+                                    <label ><strong>description</strong></label>
+                                    <input type="text "class='form-control' formControlName='description' placeholder="Description"  [ngClass]="{'is-invalid': (form1.get('description').invalid && form1.get('description').touched)}">
+                                    <div  *ngFor="let validation of validation_messages.description">
+                                        <div class="text-danger" *ngIf="form1.get('description').hasError(validation.type)
+                                        && (form1.get('description').dirty || form1.get('description').touched)">{{validation.message}}</div> 
+                                    </div>
+                                
+                                </div>
+                                <div fxLayout="row" fxLayoutGap="9px" fxLayoutAlign="end center">
+
+                                  <button mat-raised-button color="warn" (click)='dialogRef.close()'>Cancel</button>
+                                  <button  mat-raised-button color="primary" (click)='saveRecord()'[disabled]='form1.invalid'>Save</button>
+   
+                                
+                                </div>
+                                
+                             </form>  
+
+
+                             
+
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
